@@ -41,16 +41,15 @@ class _AllSongsState extends State<AllSongs> {
       ),
       body: FutureBuilder<List<SongModel>>(
         future: _audioQuery.querySongs(
-          sortType: null,
-          orderType: OrderType.ASC_OR_SMALLER,
-          uriType: UriType.EXTERNAL,
-          ignoreCase: true 
-        ),
-        builder: (context, item){
-          if(item.data == null){
+            sortType: null,
+            orderType: OrderType.ASC_OR_SMALLER,
+            uriType: UriType.EXTERNAL,
+            ignoreCase: true),
+        builder: (context, item) {
+          if (item.data == null) {
             return Center(child: CircularProgressIndicator());
           }
-          if(item.data!.isEmpty) {
+          if (item.data!.isEmpty) {
             return Center(child: Text("No Songs Found"));
           }
           return ListView.builder(
