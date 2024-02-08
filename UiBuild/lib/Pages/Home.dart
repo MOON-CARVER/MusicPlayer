@@ -7,7 +7,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         title: Text('Melophile'),
+         title: Text('Melophile',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18 ,
+          fontWeight: FontWeight.bold
+         ),
+        ),
+        backgroundColor: Colors.amberAccent,
+        centerTitle: true,
+
+
       ),
     );
 
