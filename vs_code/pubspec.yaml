@@ -14,13 +14,14 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  on_audio_query: ^2.9.0
+  permission_handler: ^11.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  on_audio_query: ^2.9.0
-  permission_handler: ^11.0.1
+
   flutter_lints: ^2.0.0
 
 flutter:
