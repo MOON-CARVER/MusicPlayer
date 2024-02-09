@@ -10,22 +10,27 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: appBar(),
       bottomNavigationBar: GNav(
-        backgroundColor:  Colors.amberAccent,
+        backgroundColor:  Color.fromRGBO(9, 18, 39, 1),
+        color: Colors.white,
+        activeColor: Colors.white,
         gap:8,
+        onTabChange: (index) {
+          print(index);
+        },
         padding: EdgeInsets.all(16),
         tabs: const [
           GButton(icon: Icons.home,
           text: 'Home',
-          backgroundColor: Colors.white,),
+          backgroundColor: Color.fromRGBO(22, 40, 50, 1)),
           GButton(icon: Icons.search,
           text: 'search',
-              backgroundColor: Colors.white),
+              backgroundColor: Color.fromRGBO(22, 40, 50, 1)),
           GButton(icon: Icons.library_books,
               text: 'playlist',
-              backgroundColor: Colors.white),
+              backgroundColor: Color.fromRGBO(22, 40, 50, 1)),
           GButton(icon: Icons.settings,
           text: 'settings',
-              backgroundColor: Colors.white)
+              backgroundColor: Color.fromRGBO(22, 40, 50, 1))
           ,
         ],
       ),
@@ -43,12 +48,12 @@ class HomePage extends StatelessWidget {
       title: Text(
         'Melophile',
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.white,
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
       ),
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Color.fromRGBO(9, 18, 39, 1),
       centerTitle: true,
       leading: Container(
         margin: EdgeInsets.all(10),
