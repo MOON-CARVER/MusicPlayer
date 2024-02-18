@@ -58,13 +58,13 @@ class HomePage extends StatelessWidget {
       leading: Container(
         margin: EdgeInsets.all(10),
         alignment: Alignment.center,
-        child: SvgPicture.asset('assets/icons/Arrow - Left 2.svg'),
         height: 20,
         width: 20,
         decoration: BoxDecoration(
           color: Color(0xffF5F5F5),
           borderRadius: BorderRadius.circular(10),
         ),
+        child: SvgPicture.asset('assets/icons/Arrow - Left 2.svg'),
       ),
       actions: [
         GestureDetector(
