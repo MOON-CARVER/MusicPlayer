@@ -15,7 +15,7 @@ class Songs extends StatefulWidget {
   _SongsState createState() => _SongsState();
 }
 
- class _SongsState extends State<Songs> {
+class _SongsState extends State<Songs> {
   @override
   void dispose() {
     _player.dispose();
@@ -44,7 +44,7 @@ class Songs extends StatefulWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("OnAudioQueryExample"),
+        title: const Text("<Melophile>"),
         elevation: 2,
       ),
       body: Center(
@@ -69,20 +69,35 @@ class Songs extends StatefulWidget {
                   return ListView.builder(
                     itemCount: item.data!.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(item.data![index].title),
-                        subtitle: Text(item.data![index].artist ?? "No Artist"),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.play_arrow),
-                          onPressed: () async {
-                            await _player.setFilePath(item.data![index].data);
-                            _player.play();
-                          },
-                        ),
-                        leading: QueryArtworkWidget(
-                          controller: _audioQuery,
-                          id: item.data![index].id,
-                          type: ArtworkType.AUDIO,
+                      return Card(
+                        elevation: 2.0,
+                        margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                        child: ListTile(
+                          leading: QueryArtworkWidget(
+                            controller: _audioQuery,
+                            id: item.data![index].id,
+                            type: ArtworkType.AUDIO,
+                          ),
+                          title: Text(item.data![index].title),
+                          subtitle: Text(item.data![index].artist ?? "No Artist"),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.play_arrow),
+                                onPressed: () async {
+                                  await _player.setFilePath(item.data![index].data);
+                                  _player.play();
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.stop),
+                                onPressed: () async {
+                                  _player.stop();
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
