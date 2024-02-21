@@ -1,6 +1,6 @@
- import 'package:clean_build/Pages/Home.dart';
 
- import 'package:flutter/material.dart';
+ import 'package:clean_build/features/home/presentation/screens/Home.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
     debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily : 'Poppins'),
+      theme: ThemeData(fontFamily : 'Poppins',useMaterial3: true),
       home:  HomePage()
     );
   }
