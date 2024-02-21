@@ -1,5 +1,5 @@
 
- import 'package:clean_build/features/home/presentation/screens/Home.dart';
+import 'package:clean_build/features/home/presentation/screens/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
