@@ -3,6 +3,7 @@ import 'package:clean_build/features/home/domain/usecases/get_songs_usecase.dart
 import 'package:clean_build/features/home/presentation/screens/Home.dart';
 import 'package:flutter/material.dart';
 
+//https://g.co/gemini/share/a3812d398f16
 void main() {
   runApp(const MyApp());
 }
