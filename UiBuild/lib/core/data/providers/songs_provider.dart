@@ -1,10 +1,8 @@
 // providers/songs_provider.dart
 
+import 'package:clean_build/core/data/models/song.dart';
+import 'package:clean_build/features/home/domain/usecases/get_songs_usecase.dart';
 import 'package:flutter/material.dart';
-import 'package:on_audio_query/on_audio_query.dart';
-
-import '../models/song.dart';
-import '../domain/usecases/get_songs_usecase.dart';
 
 class SongsProvider with ChangeNotifier {
   final GetSongsUseCase _getSongsUseCase;

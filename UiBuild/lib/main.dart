@@ -5,13 +5,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-
-  GetMaterialApp(
-    home: Provider<GetSongsUseCase>(
-      create: (_) => GetSongsUseCase(SongsRepository()),
-      child: Songs(),
-    ),
-  );
 }
 
 class MyApp extends StatelessWidget {
