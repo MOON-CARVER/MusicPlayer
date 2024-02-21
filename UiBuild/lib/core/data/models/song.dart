@@ -8,17 +8,15 @@ class Song {
   final int duration;
   final String artworkUri;
 
-  const Song({
-    required this.title,
-    required this.artist,
-    required this.album,
-    required this.dataUri,
-    required this.duration,
-    required this.artworkUri
-  });
-  
-  get object => null;
+  const Song(
+      {required this.title,
+      required this.artist,
+      required this.album,
+      required this.dataUri,
+      required this.duration,
+      required this.artworkUri});
 
+  get object => null;
 
   @override
   bool operator ==(Object other) =>
@@ -33,7 +31,8 @@ class Song {
           artworkUri == other.artworkUri;
 
   @override
-        int get hashCode => hashValues([title, artist, album, dataUri, duration, artworkUri]);
+  int get hashCode =>
+      hashValues([title, artist, album, dataUri, duration, artworkUri]);
 
   @override
   String toString() =>
