@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:just_audio/just_audio.dart';
-
-final _player = AudioPlayer();
+import 'audio_backend.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Songs()));
+  runApp(const MaterialApp(
+    home: Songs(),
+    debugShowCheckedModeBanner: false,
+    
+    
+  ));
 }
 
 class Songs extends StatefulWidget {
@@ -16,116 +19,52 @@ class Songs extends StatefulWidget {
 }
 
 class _SongsState extends State<Songs> {
+  final AudioBackend _audioBackend = AudioBackend();
+
   @override
   void dispose() {
-    _player.dispose();
+    _audioBackend.dispose();
     super.dispose();
   }
-
-  final OnAudioQuery _audioQuery = OnAudioQuery();
-  bool _hasPermission = false;
 
   @override
   void initState() {
     super.initState();
-    LogConfig logConfig = LogConfig(logType: LogType.DEBUG);
-    _audioQuery.setLogConfig(logConfig);
-    checkAndRequestPermissions();
-  }
-
-  checkAndRequestPermissions({bool retry = false}) async {
-    _hasPermission = await _audioQuery.checkAndRequest(retryRequest: retry);
-    if (_hasPermission) {
-      setState(() {});
-    }
+    _audioBackend.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("<Melophile>"),
-        elevation: 2,
+        title: const Text('Music Player'),
+        
       ),
-      body: Center(
-        child: _hasPermission
-            ? FutureBuilder<List<SongModel>>(
-                future: _audioQuery.querySongs(
-                  sortType: null,
-                  orderType: OrderType.ASC_OR_SMALLER,
-                  uriType: UriType.EXTERNAL,
-                  ignoreCase: true,
-                ),
-                builder: (context, item) {
-                  if (item.hasError) {
-                    return Text(item.error.toString());
-                  }
-                  if (item.data == null) {
-                    return const CircularProgressIndicator();
-                  }
-                  if (item.data!.isEmpty) {
-                    return const Text("Nothing found!");
-                  }
-                  return ListView.builder(
-                    itemCount: item.data!.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 2.0,
-                        margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                        child: ListTile(
-                          leading: QueryArtworkWidget(
-                            controller: _audioQuery,
-                            id: item.data![index].id,
-                            type: ArtworkType.AUDIO,
-                          ),
-                          title: Text(item.data![index].title),
-                          subtitle: Text(item.data![index].artist ?? "No Artist"),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.play_arrow),
-                                onPressed: () async {
-                                  await _player.setFilePath(item.data![index].data);
-                                  _player.play();
-                                },
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.stop),
-                                onPressed: () async {
-                                  _player.stop();
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              )
-            : noAccessToLibraryWidget(),
-      ),
-    );
-  }
+      body: FutureBuilder<List<SongModel>>(
+        future: _audioBackend.querySongs(),
+        builder:
+            (BuildContext context, AsyncSnapshot<List<SongModel>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
 
-  Widget noAccessToLibraryWidget() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.redAccent.withOpacity(0.5),
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text("Application doesn't have access to the library"),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () => checkAndRequestPermissions(retry: true),
-            child: const Text("Allow"),
-          ),
-        ],
+
+
+            return ListView.builder(
+              itemCount: snapshot.data?.length ?? 0,
+              itemBuilder: (BuildContext context, int index) {
+                SongModel song = snapshot.data![index];
+                return ListTile(
+                  leading: const Icon(Icons.music_note),
+                  title: Text(song.title),
+                  onTap: () => _audioBackend.playSong(song.data),
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }
