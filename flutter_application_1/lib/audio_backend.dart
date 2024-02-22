@@ -37,7 +37,8 @@ class AudioBackend {
   Future<void> stopSong() async {
     _player.stop();
   }
-void play() {
+
+  void play(data) {
     _player.play();
   }
 
@@ -45,6 +46,9 @@ void play() {
     _player.pause();
   }
 
- 
+  void resume() {
+    _player.play();
+  }
+
   bool get hasPermission => _hasPermission;
 }

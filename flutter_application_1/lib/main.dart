@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'audio_backend.dart';
-import 'bottom_nav_bar.dart'; // Import bottom_nav_bar.dart
+import 'bottom_nav_bar.dart'; 
 
 void main() {
   runApp(const MaterialApp(
@@ -20,14 +20,15 @@ class Songs extends StatefulWidget {
 class _SongsState extends State<Songs> {
   final AudioBackend _audioBackend = AudioBackend();
   String? _selectedSongTitle;
-  bool _isPlaying = false; 
+  bool _isPlaying = false;
+
+  
 
   void _handlePlayPause() {
-   
     if (_isPlaying) {
       _audioBackend.pause();
     } else {
-      _audioBackend.play();
+      _audioBackend.resume();
     }
     setState(() {
       _isPlaying = !_isPlaying;
@@ -72,7 +73,7 @@ class _SongsState extends State<Songs> {
                     _audioBackend.playSong(song.data);
                     setState(() {
                       _selectedSongTitle = song
-                          .title; // Update _selectedSongTitle when a song is clicked
+                          .title; 
                     });
                   },
                 );
@@ -82,7 +83,7 @@ class _SongsState extends State<Songs> {
         },
       ),
       bottomNavigationBar:
-          _selectedSongTitle != null // Show BottomNavBar if a song is selected
+          _selectedSongTitle != null 
               ? BottomNavBar(
                   songTitle: _selectedSongTitle!,
                   onPlayPause: _handlePlayPause,

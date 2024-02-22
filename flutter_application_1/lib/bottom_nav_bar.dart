@@ -24,7 +24,7 @@ class BottomNavBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: Container(
           height: 60.0,
-          width: 
+          width:100 ,
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 14, 42, 57),
             borderRadius: BorderRadius.circular(30.0),
@@ -35,7 +35,15 @@ class BottomNavBar extends StatelessWidget {
               Expanded(
                 child: Marquee(
                   text: ' $songTitle',
+
                   style: const TextStyle(color: Colors.white),
+
+                  blankSpace:20.0,
+                  velocity: 50.0 ,
+                  pauseAfterRound:Duration(seconds:3),
+                  startPadding:10,
+
+
                 ),
               ),
               IconButton(
