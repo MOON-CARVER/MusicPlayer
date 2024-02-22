@@ -20,10 +20,10 @@ class Songs extends StatefulWidget {
 class _SongsState extends State<Songs> {
   final AudioBackend _audioBackend = AudioBackend();
   String? _selectedSongTitle;
-  bool _isPlaying = false; // Add a new state variable
+  bool _isPlaying = false; 
 
   void _handlePlayPause() {
-    // Add a new method
+   
     if (_isPlaying) {
       _audioBackend.pause();
     } else {
@@ -86,6 +86,7 @@ class _SongsState extends State<Songs> {
               ? BottomNavBar(
                   songTitle: _selectedSongTitle!,
                   onPlayPause: _handlePlayPause,
+                  isPlaying: _isPlaying,
                 )
               : null,
     );
