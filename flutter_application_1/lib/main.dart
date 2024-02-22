@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'audio_backend.dart';
-import 'bottom_nav_bar.dart'; 
+import 'bottom_nav_bar.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -21,8 +21,6 @@ class _SongsState extends State<Songs> {
   final AudioBackend _audioBackend = AudioBackend();
   String? _selectedSongTitle;
   bool _isPlaying = false;
-
-  
 
   void _handlePlayPause() {
     if (_isPlaying) {
@@ -72,8 +70,7 @@ class _SongsState extends State<Songs> {
                   onTap: () {
                     _audioBackend.playSong(song.data);
                     setState(() {
-                      _selectedSongTitle = song
-                          .title; 
+                      _selectedSongTitle = song.title;
                     });
                   },
                 );
@@ -82,14 +79,12 @@ class _SongsState extends State<Songs> {
           }
         },
       ),
-      bottomNavigationBar:
-          _selectedSongTitle != null 
-              ? BottomNavBar(
-                  songTitle: _selectedSongTitle!,
-                  onPlayPause: _handlePlayPause,
-                  isPlaying: _isPlaying,
-                )
-              : null,
+      bottomNavigationBar: _selectedSongTitle != null
+          ? BottomNavBar(
+              songTitle: _selectedSongTitle!,
+              onPlayPause: _handlePlayPause,
+            )
+          : null,
     );
   }
 }
