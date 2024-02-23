@@ -79,7 +79,8 @@ class _SongsState extends State<Songs> {
           }
         },
       ),
-      bottomNavigationBar: _selectedSongTitle != null
+      bottomNavigationBar: _selectedSongTitle !=
+              null // bottom sheet showing playing song with buttons for play pause
           ? BottomNavBar(
               songTitle: _selectedSongTitle!,
               onPlayPause: _handlePlayPause,

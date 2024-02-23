@@ -49,8 +49,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
               IconButton(
                 icon: Icon(
                   _isPlaying
-                      ? Icons.pause_circle_rounded
-                      : Icons.play_arrow_rounded,
+                      ? Icons.play_arrow_rounded
+                      : Icons.pause_circle_rounded,
                   color: Colors.amberAccent,
                 ),
                 onPressed: () {
