@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:mitch_kokos/pages/home_page.dart';
-import 'package:mitch_kokos/themes/light_mode.dart';
+import 'package:mitch_kokos/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+    child: const MyApp(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(), 
-      theme: lightMode(),
+    return MaterialApp(
+      home: const HomePage(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
