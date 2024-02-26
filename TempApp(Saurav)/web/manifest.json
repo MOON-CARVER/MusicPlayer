@@ -1,6 +1,6 @@
 {
-    "name": "mitch_kokos",
-    "short_name": "mitch_kokos",
+    "name": "github",
+    "short_name": "github",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
