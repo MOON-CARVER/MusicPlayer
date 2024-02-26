@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mitch_kokos/components/bottom_sheet.dart';
 import 'package:mitch_kokos/components/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,9 +14,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar( title: Text("M E L O P H I L E"),),
+      appBar: AppBar(
+        title: Text("M E L O P H I L E"),
+      ),
       drawer: MyDrawer(),
-      body:QueueSheet(),
+      body: QueueSheet(),
     );
   }
 }

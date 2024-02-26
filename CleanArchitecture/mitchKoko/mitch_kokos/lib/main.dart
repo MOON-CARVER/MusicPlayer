@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mitch_kokos/components/bottom_sheet.dart';
 import 'package:mitch_kokos/pages/home_page.dart';
 import 'package:mitch_kokos/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
