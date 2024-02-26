@@ -9,7 +9,7 @@ class QueueSheet extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 700,
+            expandedHeight: 500,
           ),
           SliverToBoxAdapter(
             child: Padding(
