@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mitch_kokos/components/bottom_sheet.dart';
+
 import 'package:mitch_kokos/components/my_drawer.dart';
+import 'package:mitch_kokos/models/playlist_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +20,10 @@ class _HomePageState extends State<HomePage> {
         title: Text("M E L O P H I L E"),
       ),
       drawer: MyDrawer(),
-      body: QueueSheet(),
+      body:Consumer<PlaylistProvider>(builder:(context,value,child) => ListView.builder(
+        itemBuilder: ,
+      ),),
+      
     );
   }
 }
