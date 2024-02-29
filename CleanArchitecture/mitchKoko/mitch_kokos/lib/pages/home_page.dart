@@ -15,15 +15,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: Text("M E L O P H I L E"),
-      ),
-      drawer: MyDrawer(),
-      body:Consumer<PlaylistProvider>(builder:(context,value,child) => ListView.builder(
-        itemBuilder: ,
-      ),),
-      
-    );
+        backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: AppBar(
+          title: Text("M E L O P H I L E"),
+        ),
+        drawer: MyDrawer(),
+        body: Column(
+          children: [
+            Text('Hello', style: Theme.of(context).textTheme.bodyText1),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+            Text('Hellow'),
+          ],
+        ));
   }
 }
