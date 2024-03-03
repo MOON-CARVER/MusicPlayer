@@ -1,9 +1,19 @@
+
+import 'package:http/http.dart' as http;
+
 import 'package:firebase_getx/widgets/bottom_nav_bar.dart';
 
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  Future getTeams() async {
+    var response = await http.get(Uri.https('balldontlie.io', 'api/v1/teams'));
+   var jsonData =  jsonDecode(response['data']){
+    
+   }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +55,6 @@ class HomePage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-
-                  
                 ],
               ),
             ),

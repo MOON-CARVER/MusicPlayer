@@ -15,16 +15,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'M E L O P H I L E',
       theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(
-          bodyColor: Colors.white,
-          displayColor: Colors.white,
-        )
-      ),
+          textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
+              )),
       home: const HomePage(),
       getPages: [
-        GetPage(name: '/', page:()=> const HomePage()),
+        GetPage(name: '/', page: () => const HomePage()),
         //add more routes here
-        ],
+      ],
     );
   }
 }
