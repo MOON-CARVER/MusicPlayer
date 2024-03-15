@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
   ));
 }
@@ -11,10 +11,10 @@ void main() {
 Widget build(BuildContext context) {
   return MaterialApp(
       title: 'M E L O P H I L E',
+      
       theme: ThemeData(
-   
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF42C83C)),
         useMaterial3: true,
       ),
-      home: const HomePage());
+      home:  HomePage());
 }
