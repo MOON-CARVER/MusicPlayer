@@ -14,71 +14,116 @@ class HomePage extends StatelessWidget {
         backgroundColor: const Color(0xFF1c1b1b),
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(top: 20, left: 5, right: 5),
+            padding: EdgeInsets.only(top: 20),
             // padding: EdgeInsets.all(10),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Hicons.left_square_2_light_outline,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      'Now playing',
-                      style:
-                          textTheme.bodyMedium?.copyWith(color: Colors.white),
-                    ),
-                    Icon(
-                      Hicons.menu_fries_bold,
-                      color: Colors.white,
-                    ),
-                  ],
+                TopRow(textTheme: textTheme),
+                SizedBox(height: 80,),
+                ArtWorkImage(
+                  
+                  image:
+                      "https://cdn.pixabay.com/photo/2018/10/04/19/46/dog-3724261_960_720.jpg",
                 ),
+                
+                
                 Expanded(
-                    flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
                     child: Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20),
-                      child: Center(
-                          child: ArtWorkImage(
-                        image:
-                            "https://images.unsplash.com/photo-1611223726890-af5181f7769d?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                      )),
-                    )),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      padding: const EdgeInsets.only(top: 20, right: 20,left: 20),
+                      child: Column(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Song Name',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              Text(
-                                'Artist Name',
-                                style: textTheme.titleLarge
-                                    ?.copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          const Icon(
-                            Hicons.heart_3_light_outline,
-                            color: Colors.white,
-                          )
+                          SongInfo(textTheme: textTheme)
+
                         ],
-                      )
-                    ],
+                      ),
+                    ),
                   ),
                 )
               ],
             ),
           ),
-        ));
+        )
+        )
+        ;
+ 
+  }
+
+}
+
+// ! the top row widgets with back , now playing and queue icon 
+class TopRow extends StatelessWidget {
+  const TopRow({
+    super.key,
+    required this.textTheme,
+  });
+
+  final TextTheme textTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          Hicons.left_square_2_light_outline,
+          color: Colors.white,
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Text(
+          'Now playing',
+          style:
+              textTheme.bodyMedium?.copyWith(color: Colors.white),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Icon(
+          Hicons.menu_fries_bold,
+          color: Colors.white,
+        ),
+      ],
+    );
+  }
+}
+// ! The Song info widget under the album art 
+class SongInfo extends StatelessWidget {
+  const SongInfo({
+    super.key,
+    required this.textTheme,
+  });
+
+  final TextTheme textTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Bonk Anthem',
+              style: textTheme.titleLarge
+                  ?.copyWith(color: Colors.white,fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Cheems',
+              style: textTheme.subtitle1
+                  ?.copyWith(color: Colors.white60),
+            ),
+          ],
+        ),
+        const Icon(
+          Hicons.heart_3_light_outline,
+          color: Color(0xFF6C6C6C),
+        )
+      ],
+    );
   }
 }
