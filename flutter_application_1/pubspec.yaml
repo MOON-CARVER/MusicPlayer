@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hicons: ^0.1.0
+  audio_video_progress_bar: ^2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
