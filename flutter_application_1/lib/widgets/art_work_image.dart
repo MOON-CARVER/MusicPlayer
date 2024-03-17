@@ -6,10 +6,11 @@ class ArtWorkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 23,right: 23),
+      padding: EdgeInsets.all(23),
+      // padding: const EdgeInsets.only(left: 23, right: 23),
       child: Container(
         width: double.maxFinite,
-        height: MediaQuery.of(context).size.height * .45,
+        height: MediaQuery.of(context).size.height * .4,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             image:

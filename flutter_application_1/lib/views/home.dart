@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/art_work_image.dart';
 import 'package:flutter_hicons/flutter_hicons.dart';
@@ -15,44 +16,50 @@ class HomePage extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(top: 20),
-            // padding: EdgeInsets.all(10),
+            // padding: EdgeInsets.symmetric(horizontal:14),
             child: Column(
               children: [
                 TopRow(textTheme: textTheme),
-                SizedBox(height: 80,),
-                ArtWorkImage(
-                  
-                  image:
-                      "https://cdn.pixabay.com/photo/2018/10/04/19/46/dog-3724261_960_720.jpg",
+                SizedBox(
+                  height: 80,
                 ),
-                
-                
+                Expanded(
+                  flex: 2,
+                  child: ArtWorkImage(
+                    image:
+                        "https://cdn.pixabay.com/photo/2018/10/04/19/46/dog-3724261_960_720.jpg",
+                  ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 20, right: 20,left: 20),
+                      padding:
+                          const EdgeInsets.only(top: 20, right: 20, left: 20),
                       child: Column(
-                        children: [
-                          SongInfo(textTheme: textTheme)
+                        children: [SongInfo(textTheme: textTheme)],
 
-                        ],
+
+
+                        
                       ),
+                      
                     ),
                   ),
+
+                  
                 )
               ],
+              
             ),
           ),
         )
-        )
-        ;
- 
+        
+        );
   }
-
 }
 
-// ! the top row widgets with back , now playing and queue icon 
+// ! the top row widgets with back , now playing and queue icon
 class TopRow extends StatelessWidget {
   const TopRow({
     super.key,
@@ -76,8 +83,7 @@ class TopRow extends StatelessWidget {
         ),
         Text(
           'Now playing',
-          style:
-              textTheme.bodyMedium?.copyWith(color: Colors.white),
+          style: textTheme.bodyMedium?.copyWith(color: Colors.white),
         ),
         SizedBox(
           width: 20,
@@ -90,7 +96,8 @@ class TopRow extends StatelessWidget {
     );
   }
 }
-// ! The Song info widget under the album art 
+
+// ! The Song info widget under the album art
 class SongInfo extends StatelessWidget {
   const SongInfo({
     super.key,
@@ -110,16 +117,15 @@ class SongInfo extends StatelessWidget {
             Text(
               'Bonk Anthem',
               style: textTheme.titleLarge
-                  ?.copyWith(color: Colors.white,fontWeight: FontWeight.bold),
+                  ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             Text(
               'Cheems',
-              style: textTheme.subtitle1
-                  ?.copyWith(color: Colors.white60),
+              style: textTheme.subtitle1?.copyWith(color: Colors.white60),
             ),
           ],
         ),
-        const Icon(
+        Icon(
           Hicons.heart_3_light_outline,
           color: Color(0xFF6C6C6C),
         )
