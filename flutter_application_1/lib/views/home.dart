@@ -38,24 +38,14 @@ class HomePage extends StatelessWidget {
                           const EdgeInsets.only(top: 20, right: 20, left: 20),
                       child: Column(
                         children: [SongInfo(textTheme: textTheme)],
-
-
-
-                        
                       ),
-                      
                     ),
                   ),
-
-                  
                 )
               ],
-              
             ),
           ),
-        )
-        
-        );
+        ));
   }
 }
 
@@ -86,7 +76,7 @@ class TopRow extends StatelessWidget {
           style: textTheme.bodyMedium?.copyWith(color: Colors.white),
         ),
         SizedBox(
-          width: 20,
+          width: 100,
         ),
         Icon(
           Hicons.menu_fries_bold,
