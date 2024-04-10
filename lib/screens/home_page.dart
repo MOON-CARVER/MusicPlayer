@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Musify.',
+          'M E L O P H I L E',
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
             fontFamily: 'paytoneOne',
